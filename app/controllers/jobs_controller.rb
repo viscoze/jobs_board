@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:category.blank?
+    if params[:category].blank?
       @jobs = Job.all.order('updated_at DESC')
     else
       @category_id = Category.find_by(name: params[:category]).id
